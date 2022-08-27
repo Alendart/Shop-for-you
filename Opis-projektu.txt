@@ -1,0 +1,27 @@
+AUTORSKI SERWER SKLEPU
+
+Główne funkcjonalności:
+1. Konta użytkowników:
+    a. Rejestracja
+    b. Logowanie
+    c. Usuwanie konta
+    d. Zmiana hasła
+2. Katalog:
+    a. Katalog produktów
+    b. Szczegóły konkretnego produktu
+    c. Dodawanie i usuwanie produktów z bazy danych
+3. Koszyk:
+    a. Dodawanie produktów do koszyka
+    b. Usuwanie produktów z koszyka
+    c. Pogląd koszyka
+    d. Zakup produktów i wyczyszczenie koszyka
+4. Baza danych:
+    a. Baza danych użytkowników
+        - Hasła zahaszowane
+        - login
+        - id klienta?
+    b. Każdy użytkownik posiada koszyk
+        - Zapis w ciastku 24 godzinnym
+    c.Produkty są skatalogowane w bazie danych
+        -posiadają ustaloną cenę,opis i zdjęcie
+

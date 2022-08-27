@@ -1,0 +1,24 @@
+{
+  "name": "shop-for-you",
+  "version": "1.0.0",
+  "description": "My first own project -site with shop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alendart/Shop-for-you.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alendart/Shop-for-you/issues"
+  },
+  "homepage": "https://github.com/Alendart/Shop-for-you#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6"
+  }
+}

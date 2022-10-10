@@ -1,7 +1,11 @@
 class ValidationError extends Error{}
 
-function errorHandler(err,res,req,next){
+function errorHandler(err,req,res,next){
 
+    res.status(500);
+    res.render('error/error',{
+        err
+    })
 }
 
 

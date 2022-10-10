@@ -5,6 +5,9 @@ const methodOverride = require('method-override');
 const {catalogueRouter} = require("./routes/catalogue");
 const {accountRouter} = require("./routes/account");
 const {basketRouter} = require("./routes/basket");
+const {userRouter} = require("./routes/user");
+const {errorHandler} = require("./utils/error");
+
 
 
 const app = express();
@@ -28,6 +31,8 @@ app
     .use('/', catalogueRouter)
     .use('/account',accountRouter)
     .use('/basket', basketRouter)
+    .use('/user', userRouter)
 
+app.use(errorHandler);
 
 app.listen(3000);

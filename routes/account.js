@@ -8,8 +8,7 @@ const accountRouter = express.Router();
 
 accountRouter
     .get('/',async (req, res) => {
-        const data = await pool.execute('SELECT * FROM `accounts`')
-        console.log(data)
+
         res.render('account/account');
     })
     .get('/create', (req, res) => {

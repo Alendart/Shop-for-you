@@ -1,4 +1,4 @@
-const {createPool} = require('mysql2');
+const {createPool} = require('mysql2/promise');
 
 const pool = createPool({
     database:'shop-o-nator',

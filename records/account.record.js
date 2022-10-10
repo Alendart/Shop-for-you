@@ -62,9 +62,9 @@ class AccountRecord {
 
     static async verifyUser(login,pwd){
         const result = await pool.execute('SELECT * FROM `accounts`')
-        // TODO Nie jestem wstanie pobrać danych z MySQL - nie mam pojęcia dlaczego
+
         return result
-        // TODO Dodać obsługę bcrypta i hashowanie i porównywanie danych
+
     }
 
     async insert(){

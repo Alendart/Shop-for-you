@@ -1,6 +1,7 @@
 const {pool} = require("../utils/db");
 const {v4: uuid} = require('uuid')
 const {ValidationError} = require("../utils/error");
+const {createHash} = require("../utils/hash");
 
 
 class AccountRecord {
@@ -12,6 +13,7 @@ class AccountRecord {
 
         this._checkLogin()
         this._checkPwd()
+
     }
 
     _checkLogin(){
@@ -27,6 +29,7 @@ class AccountRecord {
         if (this.login.length > 15){
             throw new ValidationError("Login shouldn't be longer than 15 characters")
         }
+        // TODO Weryfikacja czy login w bazie się nie powtarza.
 
     }
 
@@ -41,6 +44,8 @@ class AccountRecord {
         //     throw new ValidationError("Password can't contain space");
         // } TODO Wymyślić sposób na sprawdzenie czy hasło zawiera spacje. Może pocięcie stringa na tablicę i sprawdzenie każdego znaku z osobna
     }
+
+
 
     _checkId(id){
         this.id = id ?? undefined
@@ -61,21 +66,31 @@ class AccountRecord {
     }
 
     static async verifyUser(login,pwd){
-        const result = await pool.execute('SELECT * FROM `accounts`')
-
-        return result
+        const [[result]] = await pool.execute('SELECT * FROM `accounts` WHERE `login` = :login',{
+            login
+        })
+        if (result.pwd === pwd){
+            console.log("Zalogowano poprawnie")
+        }else{
+            console.log("Hasło błędne")
+        } //TODO tutaj należy dodać obsługę bcrypta
+        return result.pwd === pwd ? result.id : null
 
     }
 
     async insert(){
         this.id = this.id ?? uuid()
+
+        const pwd = await createHash(this.pwd)
+
         await pool.execute('INSERT INTO `accounts` VALUES(:id,:login,:pwd)',{
             id: this.id,
             login: this.login,
-            pwd: this.pwd
+            pwd
         })
         console.log("Dodano!")
     }
+
 
 
 }

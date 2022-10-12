@@ -2,6 +2,7 @@ const express = require(`express`);
 const {ValidationError} = require("../utils/error");
 const {AccountRecord} = require("../records/account.record");
 const {pool} = require("../utils/db");
+const {createHash, compareHash} = require("../utils/hash");
 
 
 const accountRouter = express.Router();

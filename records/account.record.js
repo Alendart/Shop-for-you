@@ -22,7 +22,7 @@ class AccountRecord {
         }
         // if (this.login.trim().contains(" ")){
         //     throw new ValidationError("Login can't contain space");
-        // } TODO Wymyślić sposób na sprawdzenie czy hasło zawiera spacje. Może pocięcie stringa na tablicę i sprawdzenie każdego znaku z osobna
+        // } TODO Wymyślić sposób na sprawdzenie czy login zawiera spacje. Może pocięcie stringa na tablicę i sprawdzenie każdego znaku z osobna
         if (this.login.length < 5){
             throw new ValidationError('Login should contain at least 5 characters')
         }

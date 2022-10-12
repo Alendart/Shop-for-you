@@ -19,7 +19,8 @@ accountRouter
         const {login,pwd} = req.body
         console.log('Logowanie',{login,pwd})
         const data = await AccountRecord.verifyUser(login,pwd)
-        console.log(data)
+        console.log(data) // TODO Dokończyć obsługę logowania przy wykorzystaniu sprawdzenia hasha.
+        // TODO Informacja o zalogowaniu powinna zostać wrzucona do ciasteczka sesyjnego lub kilkugodzinnego
         res.redirect('/account/')
     })
     .post('/create', async (req, res) => {
